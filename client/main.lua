@@ -628,6 +628,7 @@ local function SellToPed(ped)
                                     action = function(entity)
                                         QBCore.Functions.Notify(Lang:t("success.sold_hotdogs", {value = HotdogsForSale, value2 = (HotdogsForSale * SellingPrice)}), 'success')
                                         TriggerServerEvent('qb-hotdogjob:server:Sell', pedCoords, HotdogsForSale, SellingPrice)
+                                        TriggerEvent('wais:addmissionxp:sellhotdogs') -- Added by Pamela for wais-battlepass
                                         SellingData.HasTarget = false
                                         LoadAnim('mp_common')
                                         TaskPlayAnim(PlayerPedId(), 'mp_common', 'givetake1_b', 8.0, 8.0, 1100, 48, 0.0, 0, 0, 0)
